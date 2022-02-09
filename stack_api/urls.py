@@ -19,10 +19,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from main.views import ProblemViewSet
+from main.views import ProblemViewSet, ReplyViewSet, CommentViewSet
 
 router = DefaultRouter()
 router.register('problems', ProblemViewSet)
+router.register('replies', ReplyViewSet)
+router.register('comments', CommentViewSet)
 
 # problems/ - GET - Problem.objects.all()
 # problems/2/ - GET - Problem.objects.get(2)
