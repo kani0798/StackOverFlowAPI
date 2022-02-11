@@ -78,6 +78,7 @@ class ReplySerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super(ReplySerializer, self).to_representation(instance)
+        representation['likes'] = instance.likes.count()
         action = self.context.get('action')
         if action == 'list':
             representation['comments'] = instance.commenty.count()
